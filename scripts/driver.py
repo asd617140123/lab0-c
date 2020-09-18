@@ -36,6 +36,7 @@ class Tracer:
         15: "trace-15-perf",
         16: "trace-16-perf",
         17: "trace-17-complexity"
+        # 19: "trace-19-test.cmd"
     }
 
     traceProbs = {
@@ -55,10 +56,11 @@ class Tracer:
         14: "Trace-14",
         15: "Trace-15",
         16: "Trace-16",
+        19: "Trace-19",
         17: "Trace-17"
     }
 
-    maxScores = [0, 6, 6, 6, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5]
+    maxScores = [0, 6, 6, 6, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 7]
 
     RED = '\033[91m'
     GREEN = '\033[92m'
@@ -89,7 +91,7 @@ class Tracer:
         fname = "%s/%s.cmd" % (self.traceDirectory, self.traceDict[tid])
         vname = "%d" % self.verbLevel
         clist = self.command + ["-v", vname, "-f", fname]
-        
+
         try:
             retcode = subprocess.call(clist)
         except Exception as e:
